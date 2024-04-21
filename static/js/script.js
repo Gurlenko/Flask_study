@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-
     var xButtons = document.querySelectorAll('.x-button');
     xButtons.forEach(function(button) {
         button.addEventListener('click', function(event) {

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="list">
+  <h1 class="text-left">All notices</h1>
+  <a href="/new" class="btn btn-success float-left">New notice</a>
+  <hr>
+    {% for category, msg in get_flashed_messages(True) %}
+      <div class="flash {{category}}">{{msg}}</div>
+    {% endfor %}
+    {% for notice in notices %}
+      <div class="notice-item">
+        <small>Written by {{ notice.user.firstname }} {{ notice.user.lastname }} on {{ notice.date_posted }}</small>
+        <h2>{{ notice.title }}</h2>
+        <p style="white-space: pre-wrap">Description:<br>{{ notice.description }}</p>
+        <p style="white-space: pre-wrap">Price: {{ notice.price }} Uah</p>
+        <a href="/buy/{{ notice.id }}/" class="buy-button-gold">In busket</a><br><br>
+      </div>
+    {% endfor %}
+  </div>
+
+{% endblock %}

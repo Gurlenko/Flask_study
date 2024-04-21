@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  <title>Registration</title>
+{% endblock %}
+
+{% block body %}
+<div class="container custom-container">
+  <div class="text-center">
+    <h1>Registration</h1>
+    {% for category, msg in get_flashed_messages(True) %}
+      <div class="flash {{category}}">{{msg}}</div>
+    {% endfor %}
+    <form action="/registration" method="post" class="registration-form">
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" name="username" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="firstname" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="firstname" name="firstname" required>
+      </div>
+      <div class="mb-3">
+        <label for="lastname" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="lastname" name="lastname" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block body %}
+<p class="profile-user">
+    Profile user: <br>
+    <span class="firstname">{{ user.firstname }}</span>
+    <span class="lastname">{{ user.lastname }}</span>
+</p>
+    {% for category, msg in get_flashed_messages(True) %}
+    <div class="flash {{category}}">{{msg}}</div>
+    {% endfor %}
+    {% for notice in notices %}
+      <div class="notice-item">
+        <small>Written on {{ notice.date_posted }}</small>
+        <h2>{{ notice.title }}</h2>
+        <p style="white-space: pre-wrap">Description:<br>{{ notice.description }}</p>
+        <p style="white-space: pre-wrap">Price: {{ notice.price }} Uah</p>
+        <a href="/delete/{{ notice.id }}" class="delete-button-red">Delete</a>
+        <a href="/edit/{{ notice.id }}" class="edit-button-blue">Edit</a><br><br>
+      </div>
+    {% endfor %}
+{% endblock %}

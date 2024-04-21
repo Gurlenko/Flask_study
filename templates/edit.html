@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container custom-container">
+  <div class="text-center">
+    <h2>Edit Notice</h2>
+    {% for category, msg in get_flashed_messages(True) %}
+      <div class="flash {{category}}">{{msg}}</div>
+    {% endfor %}
+    <form action="/edit/{{ notice.id }}/" method="Post">
+        <div>
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="title" value="{{ notice.title }}">
+        </div>
+        <div>
+            <label for="price">Price, UAH:</label><br>
+            <input type="number" id="price" name="price" value="{{ notice.price }}">
+        </div>
+        <div>
+            <label for="description">Description:</label><br>
+            <textarea id="description" name="description" rows="3">{{ notice.description }}</textarea>
+        </div>
+        <div>
+            <button type="submit">Save notice</button>
+        </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

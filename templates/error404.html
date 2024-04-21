@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  <title>Page Not Found</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block body %}
+  <div class="error-container">
+    <h1>Page not found</h1>
+    <p>Go to <a href="{{url_for('home')}}">main</a> page</p>
+  </div>
+{% endblock %}
+
+

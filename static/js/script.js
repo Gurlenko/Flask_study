@@ -2,11 +2,13 @@ document.addEventListener('DOMContentLoaded', function() {
     var cartButton = document.getElementById('cart-button');
     var cartMenu = document.getElementById('cart-menu');
 
+    
     cartButton.addEventListener('click', function(event) {
         event.stopPropagation(); 
         cartMenu.classList.toggle('active'); 
     });
 
+    
     document.addEventListener('click', function(event) {
         var isClickInsideCartMenu = cartMenu.contains(event.target);
         var isClickInsideCartButton = cartButton.contains(event.target);
@@ -15,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    
     var xButtons = document.querySelectorAll('.x-button');
     xButtons.forEach(function(button) {
         button.addEventListener('click', function(event) {
